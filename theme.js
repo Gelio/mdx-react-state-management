@@ -1,4 +1,4 @@
-import { swiss as theme } from 'mdx-deck/themes';
+import { future as theme } from 'mdx-deck/themes';
 import codeHighlightStyle from 'react-syntax-highlighter/styles/prism/tomorrow';
 import prismTypescript from 'react-syntax-highlighter/languages/prism/typescript';
 import prismTsx from 'react-syntax-highlighter/languages/prism/tsx';
