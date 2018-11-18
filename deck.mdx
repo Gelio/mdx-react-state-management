@@ -89,6 +89,44 @@ Each component can have its own state
 
 ---
 
+export default Split
+
+```jsx
+class MyComponentWithState extends Component {
+  state = {
+    text: 'some value',
+    foo: 'another value',
+    array: [1, 2, 3],
+    object: {
+      a: true,
+      b: false,
+      c: 5,
+    },
+  }
+```
+
+```js
+  render() {
+    return (
+      <div>
+        <div>Current value:{this.state.text}</div>
+
+        <button onClick={this._onClick}>Click me</button>
+      </div>
+    )
+  }
+
+  _onClick = () => {
+    this.setState({
+      text: 'the button has been clicked',
+      foo: '8',
+    })
+  }
+}
+```
+
+---
+
 export default SplitRight
 
 <div>
@@ -156,6 +194,36 @@ _onPlusClicked = () => {
   src="./static/multiple-counters.png"
   alt="Multiple counters props propagation"
 />
+
+---
+
+export default Split
+
+```js
+class App extends Component {
+  state = {
+    balances: [0]
+  }
+
+  render() {
+    return (
+      // render Counters based on this.state.balances
+    )
+  }
+}
+```
+
+```js
+class Counter extends Component {
+  // No need to use state here
+
+  render() {
+    const { value, onIncrement, onDecrement } = this.props
+
+    // Use value, onIncrement and onDecrement
+  }
+}
+```
 
 ---
 
@@ -268,6 +336,48 @@ Live coding
 
 ### How to avoid prop drilling
 
+and pass data _in the background_
+
+---
+
+export default Split
+
+```js
+const MyContext = React.createContext()
+// MyContext is an object: { Consumer, Provider }
+
+class App extends Component {
+  state = {
+    balances: [0],
+  }
+
+  render() {
+    return (
+      <MyContext.Provider value={this.state.balances}>
+        Other components here
+      </MyContext.Provider>
+    )
+  }
+}
+```
+
+````js
+class ContextUser extends Component {
+  render() {
+    return (
+      <MyContext.Consumer>
+        {balances => (
+          <div>
+            Balances can be used here.
+            For example:
+            There are {balances.length} accounts.
+          </div>
+        )}
+      </MyContext.Consumer>
+    )
+  }
+}
+
 ---
 
 <img src="./static/react-context.png" alt="React Context" />
@@ -300,10 +410,18 @@ Use Context's `Consumer` to access the necessary functions/data.
 
 ```notes
 Time to complete - 15 minutes
-```
+````
 
 ---
 
 ## `task-4-solution`
 
 Live coding
+
+---
+
+## Questions
+
+---
+
+Thank you for your participation.
