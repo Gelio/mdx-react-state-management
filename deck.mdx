@@ -1,9 +1,8 @@
-import { Head, Code, Appear, components as Components } from 'mdx-deck';
-import { FullscreenCode, Split, SplitRight } from 'mdx-deck/layouts';
-import TypescriptCode from './components/typescript-code';
-import Timer from './components/timer';
+import { Head, Code, Appear, components as Components } from 'mdx-deck'
+import { FullscreenCode, Split, SplitRight } from 'mdx-deck/layouts'
+import TypescriptCode from './components/typescript-code'
 
-export { default as theme } from './theme';
+export { default as theme } from './theme'
 
 <Head>
   <title>React State Management workshop</title>
@@ -11,11 +10,11 @@ export { default as theme } from './theme';
 
 # React - state management workshop
 
-TODO: complete
+Prepared by Grzegorz Rozdzialik
 
 Slides: http://bit.ly/react-state-slides
 
-Workshop repo: ...
+Workshop repo: http://bit.ly/react-state-workshop
 
 ---
 
@@ -41,6 +40,25 @@ TODO: add screenshots
 
 ---
 
+## Initial setup
+
+1. Pull the workshop repository http://bit.ly/react-state-workshop
+
+```
+git clone git@github.com:Gelio/react-state-management-workshop.git
+```
+
+2. `npm install`
+3. `npm start`
+4. Open [http://localhost:3000/](http://localhost:3000/)
+5. Explore the `src` directory
+
+```notes
+Show auto-reload by modifying `src/App.js`.
+```
+
+---
+
 ## Bottom-up approach
 
 1. Single `Counter` holding one customer's balance
@@ -50,6 +68,12 @@ TODO: add screenshots
 ---
 
 ## Single `Counter` component
+
+<video
+  src="https://i.gyazo.com/9c9686ba5a8e04f49e4dbe60a6eeb721.mp4"
+  autoplay="autoplay"
+  loop={true}
+/>
 
 ---
 
@@ -61,11 +85,225 @@ Each component can have its own state
 
 ---
 
-Implement a `Counter`.
+<img src="./static/single-counter.png" alt="Single counter" />
+
+---
+
+export default SplitRight
+
+<div>
+  <Components.p>
+    Run tests using <Components.inlineCode>npm run test</Components.inlineCode>
+  </Components.p>
+  <Components.p>Feel free to ask questions</Components.p>
+  <br />
+  <Components.h3>Advanced topics</Components.h3>
+  <Components.ul>
+    <Components.li>
+      <Components.a href="https://reactjs.org/docs/state-and-lifecycle.html#state-updates-may-be-asynchronous">
+        Asynchronous store updates
+      </Components.a>
+    </Components.li>
+  </Components.ul>
+</div>
+
+## `task-1`
+
+Implement a `Counter` in `src/components/Counter.js`.
+
+Use component's state to store the value.
 
 Features:
 
 - `+` button increments the value
 - `-` button decrements the value
 
-<Timer timeLeft={60} />
+```notes
+Time to complete - 10 minutes
+```
+
+---
+
+## `task-1-solution`
+
+```js
+_onMinusClicked = () => {
+  this.setState({
+    value: this.state.value - 1,
+  })
+}
+
+_onPlusClicked = () => {
+  this.setState({
+    value: this.state.value + 1,
+  })
+}
+```
+
+---
+
+## Multiple `Counter` components
+
+<video
+  src="https://i.gyazo.com/4fc09c14f3bbca60b2de41cb08ca085d.mp4"
+  autoplay="autoplay"
+  loop={true}
+/>
+
+---
+
+<img
+  src="./static/multiple-counters.png"
+  alt="Multiple counters props propagation"
+/>
+
+---
+
+export default SplitRight
+
+<div>
+  <Components.p>
+    Run tests using <Components.inlineCode>npm run test</Components.inlineCode>
+  </Components.p>
+  <Components.p>Feel free to ask questions</Components.p>
+  <br />
+  <Components.h3>Advanced topics</Components.h3>
+  <Components.ul>
+    <Components.li>
+      <Components.a href="https://reactkungfu.com/2015/08/pros-and-cons-of-using-immutability-with-react-js/">
+        Immutable data structures
+      </Components.a>
+      {' and '}
+      <Components.a href="https://facebook.github.io/immutable-js/">
+        Immutable.JS
+      </Components.a>
+    </Components.li>
+    <Components.li>
+      <Components.a href="https://reactjs.org/docs/components-and-props.html#function-and-class-components">
+        Stateless functional components
+      </Components.a>
+    </Components.li>
+  </Components.ul>
+</div>
+
+## `task-2`
+
+Implement `Counter` and edit `App` to correctly handle changes.
+
+Features:
+
+- button for opening new accounts
+- account balances are independent
+
+```notes
+Time to complete - 15 minutes
+```
+
+---
+
+## `task-2-solution`
+
+Live coding
+
+---
+
+## In a slightly larger application...
+
+<video
+  src="https://i.gyazo.com/e850016c62d4ca106bdfb5dfd5676ff7.mp4"
+  autoplay="autoplay"
+  loop={true}
+/>
+
+---
+
+### Prop drilling
+
+<img src="./static/prop-drilling.png" alt="Prop drilling" />
+
+---
+
+export default SplitRight
+
+<div>
+  <Components.p>
+    Run tests using <Components.inlineCode>npm run test</Components.inlineCode>
+  </Components.p>
+  <Components.p>Feel free to ask questions</Components.p>
+  <br />
+  <Components.h3>Advanced topics</Components.h3>
+  <Components.ul>
+    <Components.li>
+      Unstated - pass state without prop drilling
+      <br />
+      <Components.a href="https://github.com/jamiebuilds/unstated">
+        https://github.com/jamiebuilds/unstated
+      </Components.a>
+    </Components.li>
+  </Components.ul>
+</div>
+
+## `task-3`
+
+Store the data in `App`. Pass necessary props to children.
+
+Features:
+
+- pass down account balances as props
+- pass down a way to update the account balances
+
+```notes
+Time to complete - 10 minutes
+```
+
+---
+
+## `task-3-solution`
+
+Live coding
+
+---
+
+## React Context to the rescue
+
+### How to avoid prop drilling
+
+---
+
+<img src="./static/react-context.png" alt="React Context" />
+
+---
+
+export default SplitRight
+
+<div>
+  <Components.p>
+    Run tests using <Components.inlineCode>npm run test</Components.inlineCode>
+  </Components.p>
+  <Components.p>Feel free to ask questions</Components.p>
+  <br />
+  <Components.h3>Advanced topics</Components.h3>
+  <Components.ul>
+    <Components.li>
+      Redux
+      <br />
+      <Components.a href="https://redux.js.org/">
+        https://redux.js.org/
+      </Components.a>
+    </Components.li>
+  </Components.ul>
+</div>
+
+## `task-4`
+
+Use Context's `Consumer` to access the necessary functions/data.
+
+```notes
+Time to complete - 15 minutes
+```
+
+---
+
+## `task-4-solution`
+
+Live coding
