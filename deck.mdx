@@ -110,7 +110,9 @@ class MyComponentWithState extends Component {
       <div>
         <div>Current value:{this.state.text}</div>
 
-        <button onClick={this._onClick}>Click me</button>
+        <button onClick={this._onClick}>
+          Click me
+        </button>
       </div>
     )
   }
@@ -353,8 +355,10 @@ class App extends Component {
   }
 
   render() {
+    const { balances } = this.state
+
     return (
-      <MyContext.Provider value={this.state.balances}>
+      <MyContext.Provider value={balances}>
         Other components here
       </MyContext.Provider>
     )
