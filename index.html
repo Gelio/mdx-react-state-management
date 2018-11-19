@@ -75,7 +75,9 @@
       <span class="token" style="color:#67cdcc">&lt;</span>div<span class="token" style="color:#67cdcc">&gt;</span>
         <span class="token" style="color:#67cdcc">&lt;</span>div<span class="token" style="color:#67cdcc">&gt;</span>Current value<span class="token" style="color:#ccc">:</span><span class="token" style="color:#ccc">{</span><span class="token" style="color:#cc99cd">this</span><span class="token" style="color:#ccc">.</span>state<span class="token" style="color:#ccc">.</span>text<span class="token" style="color:#ccc">}</span><span class="token" style="color:#67cdcc">&lt;</span><span class="token" style="color:#67cdcc">/</span>div<span class="token" style="color:#67cdcc">&gt;</span>
 
-        <span class="token" style="color:#67cdcc">&lt;</span>button onClick<span class="token" style="color:#67cdcc">=</span><span class="token" style="color:#ccc">{</span><span class="token" style="color:#cc99cd">this</span><span class="token" style="color:#ccc">.</span>_onClick<span class="token" style="color:#ccc">}</span><span class="token" style="color:#67cdcc">&gt;</span>Click me<span class="token" style="color:#67cdcc">&lt;</span><span class="token" style="color:#67cdcc">/</span>button<span class="token" style="color:#67cdcc">&gt;</span>
+        <span class="token" style="color:#67cdcc">&lt;</span>button onClick<span class="token" style="color:#67cdcc">=</span><span class="token" style="color:#ccc">{</span><span class="token" style="color:#cc99cd">this</span><span class="token" style="color:#ccc">.</span>_onClick<span class="token" style="color:#ccc">}</span><span class="token" style="color:#67cdcc">&gt;</span>
+          Click me
+        <span class="token" style="color:#67cdcc">&lt;</span><span class="token" style="color:#67cdcc">/</span>button<span class="token" style="color:#67cdcc">&gt;</span>
       <span class="token" style="color:#67cdcc">&lt;</span><span class="token" style="color:#67cdcc">/</span>div<span class="token" style="color:#67cdcc">&gt;</span>
     <span class="token" style="color:#ccc">)</span>
   <span class="token" style="color:#ccc">}</span>
@@ -127,8 +129,10 @@
   <span class="token" style="color:#ccc">}</span>
 
   <span class="token" style="color:#f08d49">render</span><span class="token" style="color:#ccc">(</span><span class="token" style="color:#ccc">)</span> <span class="token" style="color:#ccc">{</span>
+    <span class="token" style="color:#cc99cd">const</span> <span class="token" style="color:#ccc">{</span> balances <span class="token" style="color:#ccc">}</span> <span class="token" style="color:#67cdcc">=</span> <span class="token" style="color:#cc99cd">this</span><span class="token" style="color:#ccc">.</span>state
+
     <span class="token" style="color:#cc99cd">return</span> <span class="token" style="color:#ccc">(</span>
-      <span class="token" style="color:#67cdcc">&lt;</span>MyContext<span class="token" style="color:#ccc">.</span>Provider value<span class="token" style="color:#67cdcc">=</span><span class="token" style="color:#ccc">{</span><span class="token" style="color:#cc99cd">this</span><span class="token" style="color:#ccc">.</span>state<span class="token" style="color:#ccc">.</span>balances<span class="token" style="color:#ccc">}</span><span class="token" style="color:#67cdcc">&gt;</span>
+      <span class="token" style="color:#67cdcc">&lt;</span>MyContext<span class="token" style="color:#ccc">.</span>Provider value<span class="token" style="color:#67cdcc">=</span><span class="token" style="color:#ccc">{</span>balances<span class="token" style="color:#ccc">}</span><span class="token" style="color:#67cdcc">&gt;</span>
         Other components here
       <span class="token" style="color:#67cdcc">&lt;</span><span class="token" style="color:#67cdcc">/</span>MyContext<span class="token" style="color:#ccc">.</span>Provider<span class="token" style="color:#67cdcc">&gt;</span>
     <span class="token" style="color:#ccc">)</span>
